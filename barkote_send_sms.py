@@ -1,5 +1,4 @@
-from send_sms import SendSms
-from africas_talking import AfricasTalking
+
 import africastalking as at
 def barkote_send_sms(event,context):
  
