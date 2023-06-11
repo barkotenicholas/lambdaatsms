@@ -1,9 +1,10 @@
 import json 
 
 def barkote_send_sms(event,context):
-    #ToDo
+    
+    message = event['message']    
+
     return {
-        'statusCode': 200,
-        'body': json.dumps('Hello from Lambda!')
+        'message':message
     }
     
