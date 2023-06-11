@@ -1,10 +1,8 @@
-import json 
 from send_sms import SendSms
+from africas_talking import AfricasTalking
 def barkote_send_sms(event,context):
     
-    message = 'Hello {}!'.format()  
-
-    main = SendSms()
+    main = AfricasTalking()
 
     response = main.send_sms(event['message'],event['number'])
 
