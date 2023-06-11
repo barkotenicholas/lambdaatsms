@@ -47,6 +47,7 @@ jobs:
           pip install -r requirements.txt -t my_layer/python
           cp -r barkote_send_sms.py my_layer/python
           cd my_layer
+          ls -l my_layer
           zip -r ../custom_layer.zip .
 
       - name : default deploy
