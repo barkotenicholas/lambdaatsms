@@ -43,12 +43,7 @@ jobs:
 
       - name: Package custom layer
         run: |
-          mkdir -p my_layer/python
-          pip install -r requirements.txt -t my_layer/python
-          cp -r barkote_send_sms.py my_layer/python
-          cd my_layer
-          ls -l my_layer
-          zip -r ../custom_layer.zip .
+          zip -r8 barkote_send_sms.py lambda.zip
 
       - name : default deploy
         uses: appleboy/lambda-action@master
@@ -57,5 +52,5 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-central-1
           function_name: barkote_send_sms
-          zip_file: custom_layer.zip   
+          zip_file: lambda.zip   
      
