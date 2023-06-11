@@ -10,9 +10,5 @@ def barkote_send_sms(event,context):
 
     print(response)
     return {
-        'message':message
+        'message':response
     }
-
-if __name__ == "__main__":
-    event = {"message":"Not today"}
-    barkote_send_sms(event, 'context')
