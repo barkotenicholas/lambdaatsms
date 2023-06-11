@@ -52,5 +52,5 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-central-1
           function_name: barkote_send_sms
-          zip_file:   .zip   
+          zip_file: bundle.zip   
      

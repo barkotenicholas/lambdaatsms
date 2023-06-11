@@ -5,7 +5,3 @@ class SendSms(AfricasTalking):
         super().__init__()
         self.sms = at.SMS
 
-    def send_sms(self,message,number):
-        
-        response = self.sms.send(message, [number])
-        return response
