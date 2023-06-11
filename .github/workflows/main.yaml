@@ -43,7 +43,7 @@ jobs:
 
       - name: Package custom layer
         run: |
-          zip -r8 barkote_send_sms.py lambda.zip
+          zip -r9 barkote_send_sms.py lambda.zip
 
       - name : default deploy
         uses: appleboy/lambda-action@master
