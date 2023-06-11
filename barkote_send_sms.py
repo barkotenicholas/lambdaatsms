@@ -1,3 +1,4 @@
+import pandas
 
 def barkote_send_sms(event,context):
  
