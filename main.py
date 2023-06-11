@@ -1,4 +1,4 @@
-from africastalking import AfricasTalking
+from africas_talking import AfricasTalking
 from send_sms import SendSms
 class Main(AfricasTalking,SendSms):
     def __init__(self):
