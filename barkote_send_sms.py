@@ -2,7 +2,7 @@ import json
 
 def barkote_send_sms(event,context):
     
-    message = event['message']    
+    message = 'Hello {}!'.format(event['message'])  
 
     return {
         'message':message
