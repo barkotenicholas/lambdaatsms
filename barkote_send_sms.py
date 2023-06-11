@@ -8,9 +8,6 @@ def barkote_send_sms(event,context):
  
     sms = at.SMS
 
-    response = sms.send(event['message'],event['number'])
-
-    print(response)
     return {
-        'message':response
+        'message':"response"
     }
