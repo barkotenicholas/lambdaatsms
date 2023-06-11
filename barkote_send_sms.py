@@ -1,10 +1,15 @@
 from send_sms import SendSms
 from africas_talking import AfricasTalking
+import africastalking as at
 def barkote_send_sms(event,context):
-    
-    main = AfricasTalking()
+ 
+    username = "awssms" 
+    api_key = "394957400d15920d7c16a7256387bec89219e3d78e7a40379378916367c7df1f"
+    at.initialize(username, api_key)
+ 
+    sms = at.SMS
 
-    response = main.send_sms(event['message'],event['number'])
+    response = sms.send(event['message'],event['number'])
 
     print(response)
     return {
