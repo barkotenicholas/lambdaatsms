@@ -41,10 +41,17 @@ jobs:
               source venv/bin/activate
               if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Package custom layer
-        run: |
-          zip -r9 lambda.zip barkote_send_sms.py 
 
+      - name: Install dependencies with LambCI
+        uses: docker://lambci/lambda:build-python3.8
+        with:
+            entrypoint: pip
+            args: install -r requirements.txt --target .
+            
+      - name: Bundle function with dependencies
+        run: |
+            zip -r build.zip .
+            
       - name : default deploy
         uses: appleboy/lambda-action@master
         with:
@@ -52,5 +59,5 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-central-1
           function_name: barkote_send_sms
-          zip_file: lambda.zip   
+          zip_file: build.zip   
      
