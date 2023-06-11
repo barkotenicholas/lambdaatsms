@@ -42,16 +42,20 @@ jobs:
               if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
 
-      - name: Install dependencies with LambCI
-        uses: docker://lambci/lambda:build-python3.8
-        with:
-            entrypoint: pip
-            args: install -r requirements.txt --target .
-            
-      - name: Bundle function with dependencies
+      - name: Install dependencies
         run: |
-            zip -r build.zip .
-            
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+
+      - name: Create deployment package
+        run: |
+          mkdir deployment-package
+          cp -r venv/lib/python3.8/site-packages/* deployment-package/
+          cp -r . deployment-package/
+          cd deployment-package
+          zip -r ../lambda-deployment-package.zip .
+          
       - name : default deploy
         uses: appleboy/lambda-action@master
         with:
@@ -59,5 +63,5 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-central-1
           function_name: barkote_send_sms
-          zip_file: build.zip   
+          zip_file: lambda-deployment-package.zip   
      
