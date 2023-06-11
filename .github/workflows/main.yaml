@@ -52,7 +52,7 @@ jobs:
         run: |
           mkdir deployment-package
           cp -r venv/lib/python3.8/site-packages/* deployment-package/
-          cp -r . deployment-package/
+          cp -r ./ deployment-package/
           cd deployment-package
           zip -r ../lambda-deployment-package.zip .
           
