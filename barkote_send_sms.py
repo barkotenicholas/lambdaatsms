@@ -1,4 +1,4 @@
-def barkote_send_smsa(event,context):
+def barkote_send_sms(event,context):
  
 
 
