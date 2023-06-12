@@ -52,7 +52,7 @@ jobs:
         run: |
           mkdir deployment-package
           cp -r venv/lib/python3.8/site-packages/* deployment-package/
-          cp -r barkote_send_smsa.py deployment-package/
+          cp -r barkote_send_sms.py deployment-package/
           cd deployment-package
           zip -r ../lambda-deployment-package.zip .
           
